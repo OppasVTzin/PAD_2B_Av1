@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicktor Ramos</title>
+    <style>
+        a{
+            color: black;
+            cursor: default;
+        }
+        a:hover{
+            cursor: default;
+        }
+        
+    </style>
+</head>
+<body>
+
+    
+    <h1></h1> 
+    <ul id="V1">
+        <li type="a"><input type="button" value="2336" onclick="Verificar_Resposta(1)"id="li"></li>
+        <li type="a"><input type="button" value="6232" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="3236" onclick="Verificar_Resposta(3)"id="li"></li>
+        <li type="a"><input type="button" value="3326" onclick="Verificar_Resposta(4)"id="li"></li>
+    </ul>
+    <ul id="V2">
+        <li type="a"><input type="button" value="Fibonacci" onclick="Verificar_Resposta(3)" id="li"></li>
+        <li type="a"><input type="button" value="Einstein" onclick="Verificar_Resposta(4)"id="li"></li>
+        <li type="a"><input type="button" value="Murphy" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="Navier-Stokes" onclick="Verificar_Resposta(1)"id="li"></li>
+    </ul>
+
+    <input type="submit" id="Confirma" onclick="VT()">
+
+    <script>
+        //Lista de Variáveis
+        var h1 = document.querySelector("h1");
+        h1.innerText = "AMOR está para ROMA, assim como 6323 está para:" //Set da primeira Sequência 
+        var ul = document.getElementById("V1");
+        var V2 = document.getElementById("V2");
+        var oi = document.querySelectorAll("li");
+        var Confirma = document.getElementById("Confirma")
+        var number = 1;
+        const principal = new Audio("Pulstar - VANGELIS  by Carlos Trilha.mp3"); //Set da Música Principal
+        principal.play()
+        number > 4 //Número de Cenas menor que 4
+
+        /*Setando a Primeira Cena através do DOM*/
+
+        V2.style.opacity = 0
+        Confirma.style.opacity = 0
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+        
+
+        function Verificar_Resposta(value){
+            //Lógica de Verificar Resposta
+            switch(number){
+                        case 1:
+                         if(value == 3){
+                            number = 2
+                         }
+                         break
+                        case 2:
+                        if(value == 3){
+                            number = 3
+                         }
+                         break
+                    }
+            if(value == 3){
+                switch(number){
+                    case 1:
+                        Change_Scene(1)
+                        break
+                    case 2:
+                        Change_Scene(2)
+                        break
+                    case 3:
+                        Change_Scene(3)
+                        break
+                }
+            }
+            else{
+                var body = document.body;
+                body.style.backgroundColor = "#000";
+                ul.style.opacity = 0;
+                h1.style.color = "RED";
+                h1.innerText = "Game Over";
+                oi.style.opacity = 0
+                principal.play()
+            }            
+        }
+
+        function Change_Scene(value){
+           switch (value){
+            case 2:
+                //Caso valor for 2, cena 2
+            var i = [1,1,2,3]
+            V2.style.position = "Absolute";
+            V2.style.top = "60px"
+            principal.play()
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+            h1.style.color = "White"
+            h1.innerText = i + " é sequência de"
+            ul.style.opacity = 0
+            V2.style.opacity = 1
+            break
+        
+            case 3:
+                //caso valor for 3, cena 3
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+            var Tv = ["w","v","t","s"]
+            h1.innerText = "Qual a ordem de " + Tv + " ?"
+            ul.style.opacity = 0
+            V2.style.opacity = 0
+            Confirma.style.opacity = 1
+            principal.play()
+            break
+        
+    }
+        
+}
+
+function VT(){
+    // Lógica para responder ao entrar na cena de vitória
+   var vt 
+   vt = prompt("Qual a Resposta?")
+    if(vt == "S T V W"){
+        GameOver()
+    }
+    else{
+         /* Lógica da Cena de Derrota*/
+            var body = document.body;
+                body.style.backgroundColor = "#000";
+                ul.style.opacity = 0;
+                h1.style.color = "RED";
+                h1.innerText = "Game Over";
+                var oi = document.getElementById("li");
+                oi.style.opacity = 0
+                V2.style.opacity = 0;
+                Confirma.style.opacity = 0
+    }
+}
+    /* Essa função faz com que mude a cena de jogo para a cena de vitória*/
+   function GameOver(){
+    h1.innerText = "Quem respondeu: São as consoantes ao contrário, o certo seria S,T,V,W. Você venceu a Partida";
+    h1.style.color = "Orange";
+    document.body.style.backgroundImage = "none"
+    document.body.style.backgroundColor = "Black";
+    Confirma.style.opacity = 0
+    principal.pause()
+    const audio = new Audio("Tema da Vitória - Official.mp3");
+    audio.play()
+    setInterval(() => {
+    audio.pause
+    window.close()
+    }, 10000);
+
+   }
+    </script>
+</body>
+</html>
