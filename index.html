@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicktor Ramos</title>
+    <style>
+        a{
+            color: black;
+            cursor: default;
+        }
+        a:hover{
+            cursor: default;
+        }
+
+        @media screen and (max-width: 768px) or (max-width:1024px) or (max-width:1336px)
+        and (max-width: 320px) or (max-width:375px) or (max-width: 425px) {
+            *{
+                width: 100%;
+                height: auto;
+            }
+        
+        } 
+        
+    </style>
+</head>
+<body>
+
+    <input type="button" value="Tocar" class="Musica" onclick="Music()">
+    <h1></h1> 
+    <ul id="V1">
+        <li type="a"><input type="button" value="Númerica" onclick="Verificar_Resposta(1)"id="li"></li>
+        <li type="a"><input type="button" value="Lógica" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="Palíndromo Númerico" onclick="Verificar_Resposta(3)"id="li"></li>
+        <li type="a"><input type="button" value="Palíndromo Lógico" onclick="Verificar_Resposta(4)"id="li"></li>
+    </ul>
+    <ul id="V2">
+        <li type="a"><input type="button" value="Palíndromo Lógico" onclick="Verificar_Resposta(3)" id="li"></li>
+        <li type="a"><input type="button" value="Palíndromo Figurado" onclick="Verificar_Resposta(4)"id="li"></li>
+        <li type="a"><input type="button" value="Palíndromo Númerico" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="Lógica" onclick="Verificar_Resposta(1)"id="li"></li>
+    </ul>
+    <img src="Fogos.gif" id="Fogos">
+
+    <input type="submit" id="Confirma" onclick="VT()">
+
+    <script>
+        //Lista de Variáveis
+        var Arara = [12321,1001,2002,3003]
+        var h1 = document.querySelector("h1");
+        h1.innerText = Arara + " é Sequência:" //Set da primeira Sequência 
+        var ul = document.getElementById("V1");
+        var V2 = document.getElementById("V2");
+        var oi = document.querySelectorAll("li");
+        var Confirma = document.getElementById("Confirma")
+        var number = 1;
+        var principal = new Audio("Marshmello - Alone (Julian Mean Hardstyle Remix).mp3"); //Set da Música Principal
+        number > 4 //Número de Cenas menor que 4
+        /*Setando a Primeira Cena através do DOM*/
+        var Fogos = document.getElementById("Fogos")
+        Fogos.style.opacity = 0
+        V2.style.opacity = 0
+        Confirma.style.opacity = 0
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+        var Music = () =>{
+            principal.play()
+            principal.loop = true
+        }
+        var GameOver = () =>{
+            var body = document.body;
+                body.style.backgroundColor = "#000";
+                ul.style.opacity = 0;
+                h1.style.color = "RED";
+                h1.innerText = "Game Over";
+                var oi = document.getElementById("li");
+                oi.style.opacity = 0
+                V2.style.opacity = 0;
+                Confirma.style.opacity = 0
+                Fogos.style.opacity = 0
+                audio.pause()
+                document.querySelector(".Musica").remove()
+        }
+        function Verificar_Resposta(value){
+            //Lógica de Verificar Resposta
+            switch(number){
+                        case 1:
+                         if(value == 3){
+                            number = 2
+                         }
+                         break
+                        case 2:
+                        if(value == 3){
+                            number = 3
+                         }
+                         break
+                    }
+                    switch(value){
+                        case 1:
+                            GameOver()
+                        case 2:
+                            GameOver()
+                        case 4:
+                            GameOver()
+                    }
+            if(value == 3){
+                switch(number){
+                    case 1:
+                        Change_Scene(1)
+                        break
+                    case 2:
+                        Change_Scene(2)
+                        break
+                    case 3:
+                        Change_Scene(3)
+                        break
+                }
+            }  
+            }            
+        
+
+        function Change_Scene(value){
+           switch (value){
+            case 2:
+                var V1 = document.querySelector("#V1").remove()
+                //Caso valor for 2, cena 2
+            var i = ["Amor","Roma","Galo","Lago"]
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+            h1.style.color = "White"
+            h1.innerText = i + " é sequência:"
+            ul.style.opacity = 0
+            V2.style.opacity = 1
+            break
+        
+            case 3:
+                //caso valor for 3, cena 3
+        document.body.style.backgroundImage = "url('BG.jpg')"
+        document.body.style.backgroundRepeat = "no-repeat"
+        document.body.style.backgroundSize = "100%"
+        document.body.style.color = "White"
+            var Tv = ["w","v","t","s"]
+            h1.innerText = "Qual a ordem de " + Tv + " ?"
+            ul.style.opacity = 0
+            V2.style.opacity = 0
+            Confirma.style.opacity = 1
+            break
+        
+    }
+
+        
+}
+
+function VT(){
+    // Lógica para responder ao entrar na cena de vitória
+   var vt 
+   vt = prompt("Qual a Resposta?")
+    if(vt == "S T V W" || vt == "STVW" || vt == "S,T,V,W"){
+    /* Essa condicional faz com que mude a cena de jogo para a cena de vitória*/
+        h1.innerText = "Quem respondeu: São as consoantes ao contrário, o certo seria S,T,V,W. Você venceu a Partida";
+    h1.style.color = "Orange";
+    document.body.style.backgroundImage = "none"
+    document.body.style.backgroundColor = "Black";
+    Confirma.style.opacity = 0
+    principal.pause()
+    document.querySelector(".Musica").remove()
+    audio.play()
+    audio.loop = true
+    Fogos.style.opacity = 1
+    }
+else{
+    GameOver()
+    }
+if(vt == null){
+    GameOver()
+}
+}
+    const audio = new Audio("Tema da Vitória - Official.mp3");
+
+    </script>
+</body>
+</html>
