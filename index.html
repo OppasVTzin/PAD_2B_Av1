@@ -13,11 +13,10 @@
             cursor: default;
         }
 
-        @media screen and (max-width: 768px) or (max-width:1024px) or (max-width:1336px)
-        and (max-width: 320px) or (max-width:375px) or (max-width: 425px) {
+        @media screen and (max-width: 768px) and (max-width:1024px) and (max-width:1336px)
+        and (max-width: 320px) and (max-width:375px) and (max-width: 425px) {
             *{
                 width: 100%;
-                height: auto;
             }
         
         } 
@@ -29,16 +28,16 @@
     <input type="button" value="Tocar" class="Musica" onclick="Music()">
     <h1></h1> 
     <ul id="V1">
-        <li type="a"><input type="button" value="Númerica" onclick="Verificar_Resposta(1)"id="li"></li>
-        <li type="a"><input type="button" value="Lógica" onclick="Verificar_Resposta(2)"id="li"></li>
-        <li type="a"><input type="button" value="Palíndromo Númerico" onclick="Verificar_Resposta(3)"id="li"></li>
-        <li type="a"><input type="button" value="Palíndromo Lógico" onclick="Verificar_Resposta(4)"id="li"></li>
+        <li type="a"><input type="button" value="4004" onclick="Verificar_Resposta(1)"id="li"></li>
+        <li type="a"><input type="button" value="1001" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="2002" onclick="Verificar_Resposta(3)"id="li"></li>
+        <li type="a"><input type="button" value="5005" onclick="Verificar_Resposta(4)"id="li"></li>
     </ul>
     <ul id="V2">
-        <li type="a"><input type="button" value="Palíndromo Lógico" onclick="Verificar_Resposta(3)" id="li"></li>
-        <li type="a"><input type="button" value="Palíndromo Figurado" onclick="Verificar_Resposta(4)"id="li"></li>
-        <li type="a"><input type="button" value="Palíndromo Númerico" onclick="Verificar_Resposta(2)"id="li"></li>
-        <li type="a"><input type="button" value="Lógica" onclick="Verificar_Resposta(1)"id="li"></li>
+        <li type="a"><input type="button" value="4" onclick="Verificar_Resposta(3)" id="li"></li>
+        <li type="a"><input type="button" value="5" onclick="Verificar_Resposta(4)"id="li"></li>
+        <li type="a"><input type="button" value="1" onclick="Verificar_Resposta(2)"id="li"></li>
+        <li type="a"><input type="button" value="3" onclick="Verificar_Resposta(1)"id="li"></li>
     </ul>
     <img src="Fogos.gif" id="Fogos">
 
@@ -46,9 +45,9 @@
 
     <script>
         //Lista de Variáveis
-        var Arara = [12321,1001,2002,3003]
+        var Arara = [12321,1001,"_",3003]
         var h1 = document.querySelector("h1");
-        h1.innerText = Arara + " é Sequência:" //Set da primeira Sequência 
+        h1.innerText = Arara + " O que está faltando?" //Set da primeira Sequência 
         var ul = document.getElementById("V1");
         var V2 = document.getElementById("V2");
         var oi = document.querySelectorAll("li");
@@ -126,13 +125,13 @@
             case 2:
                 var V1 = document.querySelector("#V1").remove()
                 //Caso valor for 2, cena 2
-            var i = ["Amor","Roma","Galo","Lago"]
+            var i = [1,1.2,3,"_"]
         document.body.style.backgroundImage = "url('BG.jpg')"
         document.body.style.backgroundRepeat = "no-repeat"
         document.body.style.backgroundSize = "100%"
         document.body.style.color = "White"
             h1.style.color = "White"
-            h1.innerText = i + " é sequência:"
+            h1.innerText = i + " O que é que está faltando?"
             ul.style.opacity = 0
             V2.style.opacity = 1
             break
